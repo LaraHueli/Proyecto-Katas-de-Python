@@ -3,12 +3,7 @@
 
 
 
-lista_numeros = int(imput(f"Por favor, ingresa una lista de numeros"))
+lista_numeros = [5,7,10,11,16,20,22]
 
-def promedio (n):
-    if lista_numeros == 0
-        print("la lista esta vacia, por favor, ingresa la {lista_numeros}")
-    
-    
-promedio = lista_numeros/len(lista_numeros)
-    
+def promedio (lista):
+   media = sum(lista_numeros)/len(lista_numeros)
