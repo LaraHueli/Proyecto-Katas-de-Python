@@ -4,7 +4,7 @@
 try:
     edad = int(input(f"por favor, introduce tu edad: "))  # Intenta convertir la entrada a un entero
 
-    if edad <= 0 or edad > 120 and edad is not int:
+    if edad <= 0 or edad > 120:
      print(f"Has introducido {edad} años, eso no es un valor valido.")
     else:
      print(f"Tu edad son {edad} años.")    

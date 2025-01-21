@@ -1,4 +1,4 @@
-# Escribe un programa en python que cree una lista de diccionarios que contenga informacion de estudiantes (nombre, edad, calificacion) y use la funcion filter para extraer a los 
+# 18.Escribe un programa en python que cree una lista de diccionarios que contenga informacion de estudiantes (nombre, edad, calificacion) y use la funcion filter para extraer a los 
 # estudiantes con una calificacionmayor o igual a 90. Usa la funcion filter()
 
 # Paso 1: Crear las listas individuales de datos

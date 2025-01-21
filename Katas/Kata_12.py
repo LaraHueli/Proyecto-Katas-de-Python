@@ -1,4 +1,4 @@
-# genera una funcion que al recibir una frase devuelva una lista con la longitud de cada palabra. Usa la funcion map()-
+#12  genera una funcion que al recibir una frase devuelva una lista con la longitud de cada palabra. Usa la funcion map()-
 
 
 # Pedir al usuario que ingrese una frase

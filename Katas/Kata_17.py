@@ -1,4 +1,4 @@
-# Crea una funcion que tome una lista de digitos y devuelva el numero correspondiente. Por ejemplo [5,7,2] corresponde al numero quinientos setenta y dos (572):usa la funcion reduce()
+#17. Crea una funcion que tome una lista de digitos y devuelva el numero correspondiente. Por ejemplo [5,7,2] corresponde al numero quinientos setenta y dos (572):usa la funcion reduce()
 
 from functools import reduce  # Importamos reduce desde functools
 

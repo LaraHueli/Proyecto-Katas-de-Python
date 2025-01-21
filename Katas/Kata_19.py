@@ -1,4 +1,4 @@
-# Crea una funcion lambda que filtre los numeros impares de una lista dada
+#19.  Crea una funcion lambda que filtre los numeros impares de una lista dada
 
 numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] #lista dada
 

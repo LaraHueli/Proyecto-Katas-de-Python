@@ -1,4 +1,4 @@
-# Para una lista con con elementos tipo int y str obten una nueva lista solo con los valores int. Usa la funcion filter()
+#20. Para una lista con con elementos tipo int y str obten una nueva lista solo con los valores int. Usa la funcion filter()
 
 lista_mezclada =["daniela", 10, "Martina", 5, "Miguel Angel", 51, "Lara", 45]
 

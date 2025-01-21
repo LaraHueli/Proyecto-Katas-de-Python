@@ -1,4 +1,4 @@
-# Crea una función lambda que sume 3 a cada número de una lista dada.
+# 15 Crea una función lambda que sume 3 a cada número de una lista dada.
 
 # Lista de entrada
 lista_dada = [2, 4, 3, 7, 5]  # Esta es la lista de números sobre la cual vamos a trabajar.

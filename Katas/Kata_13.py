@@ -1,4 +1,4 @@
-# Genera una funcion la cual, para un conjunto de caracteres, devuelva una lista de tuplas con cada letra en mayuscula y minuscula. Las letras no puedes estar repetidas. Usa Map().
+# 13 Genera una funcion la cual, para un conjunto de caracteres, devuelva una lista de tuplas con cada letra en mayuscula y minuscula. Las letras no puedes estar repetidas. Usa Map().
 
 # Lista de ejemplo
 lista = ["MaYuScUlAs"]
