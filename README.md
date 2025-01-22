@@ -11,12 +11,6 @@ La carpeta principal del proyecto incluye los siguientes directorios:
 - **Documentos Proyecto**: Incluye un archivo PDF con el enunciado inicial del proyecto.
 - **README**: Archivo con la descripción del proyecto y su estructura.
 
-## Instrucciones para la Ejecución
-
-1. Clona este repositorio en tu máquina local utilizando:
-   ```bash
-   git clone <URL_DEL_REPOSITORIO>
-
 Funcionalidades Principales
 El proyecto incluye ejercicios que abordan los siguientes temas:
 
