@@ -335,3 +335,519 @@ print(lista_int)
 
 
 ###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+#21  Crea una funcion que calcule el cubo de un numero dado mediante una funcion lambda
+
+numero = int(input(f"Por favor, introduce un numero: ")) # pedimos al usuario que ingrese un numero
+
+numero_cubo = lambda n: n ** 3 # lambda argumento: expresion
+
+resultado = (numero_cubo(numero)) # metemos el resultado en una variable
+
+print(f"Has introducido el numero: {numero}. Y su cubo es: {resultado}.") #printeamos
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 22 Dada una lista numerica, obten el producto total de los valores de dicha lista usando la funcion reduce()
+from functools import reduce #primero importaciones necesarias
+
+numeros = [1, 3, 5, 7, 9] # lista dada
+# Utilizamos reduce(función, iterable)
+# - lambda x, y: x * y 
+producto = reduce(lambda x, y: x * y, numeros)
+
+print(producto) # Imprimimos el resultado
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 23.-  Concatena una lista de palabras. Usa la funcion reduce()
+from functools import reduce #primero importaciones necesarias
+
+lista_palabras = ["Concatena", " ", "una", " ",  "lista", " ", "de", " ",  "palabras"] # lista dada
+
+# Utilizamos reduce(función, iterable)
+# - lambda  
+palabras_concatenadas = reduce(lambda palabra, contatenar: palabra + contatenar , lista_palabras)
+
+print(palabras_concatenadas) # Imprimimos el resultado
+# es similar al ejercicio anterior
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 24 Calcula la diferencia total en los valores de una lista. Usa la funcion reduce()
+
+from functools import reduce # importacion necesaria
+
+lista_numeros = [51,45,10,5]
+
+diferencia_total = reduce(lambda x,y:x-y,lista_numeros)
+
+print(diferencia_total)
+# mismo concpto que el anterior, pero la repeticion hace que se asimile bien el concepto
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 25 Crea una funcion que cuente el numero de caracteres en una cadena de texto dada. no me des el resultado
+texto = ["cadena de texto dada"]
+
+def contar_caracteres(texto):
+   
+    numero_caracteres = 0 # contador = 0 
+   
+    for palabra in texto:
+        
+        numero_caracteres += len(palabra) # sumamos la longitud al contador (numero_caracteres = numero_caracteres + longitud_palabra)
+    return numero_caracteres
+resultado = contar_caracteres(texto)
+print(f"El numero total de caracteres es: {resultado}")
+
+#opcion corta
+from functools import reduce  # Importamos 
+texto = "cadena de texto dada"
+numero_caracteres = reduce(lambda palabra, caracter: palabra + 1, texto, 0) # texto, 0): para poner un contador
+ 
+print(f"El numero total de caracteres es: {numero_caracteres}")
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 26  Crea una funcion lambda que calcule el resto de la duvision entre dos numeros dados.
+
+# Pedimos al usuario dos numeros 
+num1 = int(input("Por favor introduce el primer número: "))  # Dividendo
+num2 = int(input("Por favor introduce el segundo número: "))  # Divisor
+
+# Validamos  antes de realizar el calculo
+if num2 == 0:
+    # Si el divisor es 0 error
+    print("El divisor no puede ser cero.")
+elif num1 < num2:
+    # Si el divisor es mayor que el dividendo, el resto es el dividendo
+    print(f"El resto de la división es el número completo: {num1}")
+else:
+    # Usamos una funcion lambda para calcular 
+    resto = lambda num1, num2: num1 % num2
+    resultado = resto(num1, num2)  # Calculamos 
+    print(f"El resto de la división es: {resultado}")
+    
+    
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 27  Crea una funcion que calcule el promedio de una lista de numeros
+lista_numeros =[2,7,5,3,8,12]
+
+promedio = lambda numeros: sum(numeros)/len(numeros)
+
+resultado = round((promedio(lista_numeros)),2)
+
+print(f"El promedio de la lista: {lista_numeros} es :{resultado}")
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 28 Crea una función que busque y devuelva el primer elemento duplicado en una lista dada
+def primer_duplicado(lista): # Definimos la función
+   
+    set_duplicados = set()  # conjunto vacío que no permite duplicados
+  
+    for numero in lista:  # Recorremos la lista con un bucle for
+       
+        if numero in set_duplicados:
+            return numero
+        set_duplicados.add(numero) # usamos add, porque los set no aceptan appdend
+    return None
+lista_numeros = [3, 1, 4, 2, 5, 3, 6, 7, 8, 4]
+
+resultado = primer_duplicado(lista_numeros)# Llamamos a la función y guardamos el resultado 
+print(f"El primer elemento duplicado es: {resultado}")
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 29 Crea una funcion que convierta una variable en una cadena de texto y enmascare todos los caracteres con el caracter #, excepto los 4 ultimos.
+def enmascarar(variable): # creamos la funcion
+   
+    texto = str(variable)  # Convertimos la variable a cadena de texto
+    
+    # Enmascaramos todos menos los últimos 4 caracteres
+    enmascarado = "#" * (len(texto) - 4) + texto[-4:]
+    
+    return enmascarado     # Devolvemos el resultado
+variable = "Esto es una variable"
+resultado = enmascarar(variable)
+print(resultado)
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 30 Crea una funcion que determine si dos palabras son anagramas, es decir, si estan formadas por las mismas letras pero en diferente orden. 
+# Definimos la funcion
+def son_anagramas(palabra1, palabra2):
+    # palabras a minusculas 
+    palabra1 = palabra1.lower()
+    palabra2 = palabra2.lower()
+        # Ordenamos las letras de cada palabra. El método `sorted` toma una secuencia y devuelve una lista    
+    letras1 = sorted(palabra1)
+    letras2 = sorted(palabra2)
+    # Comparamos las listas 
+    if letras1 == letras2:
+        return True  # Las palabras son anagramas
+    else:
+        return False  # No son anagramas
+palabra1 = "amor"
+palabra2 = "roma"
+resultado = son_anagramas(palabra1, palabra2)
+
+print(f"¿Las palabras '{palabra1}' y '{palabra2}' son anagramas? {resultado}")
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 31 Crea una funcion que solicite al usuario ingresar una lista de nombres y luego solicite un nombre para buscar en esa lista. Si el nombre esta en la lista, se imprime un 
+# mensaje indicando que fue encontrado, de lo contrario, se lanza una excepcion
+
+def buscar_en_lista ():
+    try:
+        lista_nombres = input(f"Por favor, igresa una lsita de nombres: ").split(",") # .split(",") es un metodo que convierte un string en una lista. 
+        nombre_buscado = input(f"¿Que nombre quieres buscar?: ")
+        
+        for nombre in lista_nombres:
+            if nombre.strip() == nombre_buscado:
+                return(f"El nombres buscado es: {nombre_buscado} y esta en la lista nombres ")
+                break  # Salimos del bucle al encontrar el nombre
+        else:
+                raise ValueError# Si el bucle termina sin encontrar el nombre, lanzamos una excepcion
+    except ValueError:
+        return("Error: El nombre que buscas no esta en la lista.")  # Si no se puede convertir a entero, muestra este mensaje     
+print(buscar_en_lista()) 
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 32 Crea una funcion que tome un nombre completo y una lista de empleados, busque el nombre completo en la lista y devuelve el puesto del empleado si esta en la lista,
+# de lo contrario, devuelve un mensaje indicando que la persona no trabaja aqui 
+
+def buscar_puesto(): # creamos la funcion sin parametros
+    try:
+        empleados = [{"nombre": "Lara Hueli", "puesto": "Analista de Datos"}, 
+                     {"nombre": "Miguel Ángel Ordóñez", "puesto": "Gerente de Proyectos"},  
+                     {"nombre": "Martina Ordóñez", "puesto": "Desarrolladora"}, 
+                     {"nombre": "Daniela Hueli", "puesto": "Diseñadora"}]
+
+        nombre_buscado = input("¿Qué empleado quieres buscar?: ")
+       
+        for empleado in empleados: # Iteramos sobre la lista de empleados
+           if empleado["nombre"] == nombre_buscado: # Comparamos si el nombre del empleado coincide con el buscado
+               return(f"El puesto de {nombre_buscado} es: {empleado['puesto']}")
+
+        else: # Si el bucle termina sin encontrar el nombre, lanzamos una excepcion
+            raise ValueError 
+
+    except ValueError:
+        return("Error: Esta persona no trabaja aquí.")
+    # Llamada a la funcion
+print(buscar_puesto())
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 33 Crea una funcion lambda que sume elementos correspondientes de dos listas dadas
+
+sumar_listas = lambda x, y: x + y # Definimos la función lambda que suma dos valores
+lista1 = [3, 5, 7, 9]
+lista2 = [10, 20, 30, 40]
+resultado = list(map(sumar_listas, lista1, lista2))  #map para iterar sobre cada elemento y list para transformar a lista
+# Mostramos el resultado
+print(resultado)
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# Crea la clase Arbol, define un arbol generico con un tronco y ramas como atributos.
+# Los metodos disponibles son crecer_tronco, nueva_rama, crecer_ramas, quitar_rama e info_arbol.
+# El objetivo es implementar estos metodos para manipular la estructura del arbol.
+
+# Código a seguir:
+# 1. Inicializar un arbol con un tronco de longitud 1 y una lista vacia de ramas.
+# 2. Implementar el metodo crecer_tronco para aumentar la longitud del tronco en una unidad.
+# 3. Implementar el metodo nueva_rama para agregar una nueva rama de longitud 1 a la lista de ramas.
+# 4. Implementar el metodo crecer_ramas para aumentar en una unidad la longitud de todas las ramas existentes.
+# 5. Implementar el metodo quitar_rama para eliminar una rama en una posición especifica.
+# 6. Implementar el metodo info_arbol para devolver información sobre la longitud del tronco, 
+#    el numero de ramas y las longitudes de las mismas.
+
+# Caso de uso:
+# 1. Crear un arbol.
+# 2. Hacer crecer el tronco del arbol una unidad.
+# 3. Añadir una nueva rama al arbol.
+# 4. Hacer crecer todas las ramas del arbol una unidad.
+# 5. Añadir dos nuevas ramas al arbol.
+# 6. Retirar la rama situada en la posicion 2.
+# 7. Obtener informacion sobre el arbol.
+
+class Arbol:
+    def __init__(self):
+        self.tronco = 1
+        self.ramas = []
+        
+    def crecer_tronco (self):
+        self.tronco += 1
+        
+    def nueva_rama (self):
+        self.ramas.append(1) # append porque es una lista
+      
+    def crecer_ramas (self):    
+        self.ramas = [rama + 1 for rama in self.ramas]
+        
+    def quitar_rama (self,position):
+            if 0 <= position < len(self.ramas):  # Verificamos si la posicion es valida
+                self.ramas.pop(position)  # Eliminamos la rama en la posicion indicada
+            else:
+                print("Posicion no válida. No se puede quitar la rama.")  # Mensaje si la posicion no es valida  
+                
+    def info_arbol(self):
+        print(f"Longitud del tronco: {self.tronco}")
+        print(f"Numero de ramas: {len(self.ramas)}")
+        print(f"Longitudes de las ramas: {self.ramas}")            
+            
+arbol = Arbol()  # Creamos un arbol
+arbol.crecer_tronco()  # Hacemos crecer el tronco
+arbol.nueva_rama()  # Añadimos una nueva rama
+arbol.nueva_rama()  # Añadimos otra nueva rama
+arbol.crecer_ramas()  # Hacemos crecer todas las ramas
+print(f"Ramas despues de crecer: {arbol.ramas}")  # Mostramos las ramas despues de crecer
+arbol.quitar_rama(1)  # Quitamos la rama en la posicion 1 (ajustado)
+arbol.info_arbol()  # Mostramos toda la informacion del arbol
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 36 Crear la clase UsuarioBanco, represante a un usuario de un banco con su nombre, saldo y si tiene o no  cuenta corriente. Proporciona metodos para realizar operaciones 
+# como retirar dinero, transferir dinero desde otro usuario y agregar dinero al saldo:
+#Codigo a Seguir:
+# 1.- Inicializar un usuario con su nombre, saldo y si tiene o no cuenta coprriente mediante true o false.
+# 2.- Implementar el metodo retirar_dinero para retirar dinero del saldo del usuario. Lanzara un error en casoo de nopoder hacerse
+# 3.- Implementar el metodo transferir_dinero para realizar una transferencia desde otro usuario al usuario actua. Lanzara un error en caso de no poder hacerse.
+# 4.- 4. Implementar el metodo agregar_dinero para agregar dinero al saldo del usuario.
+
+# Caso de uso:
+# 1. Crear dos usuarios: "Alicia" con saldo inicial de 100 y "Bob" con saldo inicial de 50, ambos con cuenta corrient
+# 2. Agregar 20 unidades de saldo de "Bob
+# 3. Hacer una transferencia de 80 unidades desde "Bob" a "Alicia
+# 4. Retirar 50 unidades de saldo a "Alicia
+
+
+class UsuarioBanco:
+    def __init__(self, nombre, saldo, cuenta):
+        self.nombre = nombre
+        self.saldo = saldo 
+        self.cuenta = cuenta 
+    def retirar_dinero(self, cantidad1):
+        try:
+            if self.saldo >= cantidad1:  # Verifica si el saldo es suficiente
+                self.saldo -= cantidad1  # Resta la cantidad al saldo
+                print(f"Has retirado {cantidad1}. Saldo restante: {self.saldo}")
+            else:
+                raise ValueError("Saldo insuficiente")  # Lanza el error
+        except ValueError:
+            print(f"Error: Saldo insuficiente")  # Captura el error lanzado
+    def transferir_dinero(self, cantidad2):
+        try:
+            if usuario2.saldo >= cantidad2:  # Verifica si usuario2 tiene suficiente saldo
+                usuario2.saldo -= cantidad2  # Resta del saldo de usuario2
+                self.saldo += cantidad2  # Suma al saldo del usuario actual
+                print(f"Has recibido {cantidad2} de {usuario2.nombre}. Saldo actual: {self.saldo}")
+            else:
+                raise ValueError("El usuario remitente no tiene suficiente saldo")
+        except ValueError as mensaje:
+            print(f"Error: {mensaje}")
+      
+usuario1 = UsuarioBanco(nombre="Alicia", saldo=100, cuenta=True)
+usuario2 = UsuarioBanco(nombre="Bob", saldo=50, cuenta=True)
+cantidad1 = float(input("¿Cuánto dinero deseas retirar? "))
+usuario1.retirar_dinero(cantidad1) 
+cantidad2 = float(input("¿Cuánto dinero deseas transferir? "))
+usuario1.transferir_dinero(cantidad2)    
+  
+        
+print("Nombre:", usuario1.nombre)
+print("Saldo:", usuario1.saldo)
+print("Cuenta Corriente:", usuario1.cuenta)
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 37. Crea una función llamada procesar_texto que procesa un texto según la opción especificada: contar_palabras , reemplazar_palabras , eliminar_palabra . 
+# Estas opciones son otras funciones que tenemos que definir primero y llamar dentro de la función procesar_texto .
+# Código a seguir:
+# 1. Crear una función contar_palabras para contar el número de veces que aparece cada palabra en el texto. Tiene que devolver un diccionario.
+# 2. Crear una función reemplazar_palabras para remplazar una palabra_original del texto por una palabra_nueva . Tiene que devolver el texto con el remplazo de palabras.
+# 3. Crear una función eliminar_palabra para eliminar una palabra del texto. Tiene que devolver el texto con la palabra eliminada.
+# 4. Crear la función procesar_texto que tome un texto, una opción(entre "contar", "reemplazar", "eliminar") y número de argumentos variable según la opción indicada.
+# Caso de uso:
+# Comprueba el funcionamiento completo de la función procesar_texto
+
+def contar_palabras (texto):
+    palabras = texto.split() # .split() divide el texto en una lista de palabras separadas
+    conteo = {} # Icontador diccionario a cero y vacio
+    for palabra in palabras: #iteramos sobre cada palabra de la lista
+        conteo[palabra]=conteo.get(palabra, 0) + 1 #.get busca la palabra, si esta edvuleve 0 y si no esta suma 1
+    return conteo    
+
+
+def reemplazar_palabras(texto, palabra_original, palabra_nueva): 
+    return texto.replace(palabra_original, palabra_nueva) # devuelve el texto donde reemplaza la original por la nueva
+
+def eliminar_palabra(texto, *palabra_eliminada): #ponemos* para tener un numero x de palabras
+    palabras = texto.split()  # .split() divide el texto en una lista de palabras separadas
+    palabras = [p for p in palabras if p != palabra_eliminada] #iteracion y cambio
+    return " ".join(palabras) # .join() para unir las palabras de la lista en un único string
+
+def procesar_texto(texto, opcion, *args): # texto de siempre, funcion a ejecutar, argumentos variables
+    if opcion == "contar":
+        return contar_palabras(texto)
+    elif opcion == "reemplazar":
+        return reemplazar_palabras(texto, *args)
+    elif opcion == "eliminar":
+        return eliminar_palabra(texto, *args)
+    else:
+        raise ValueError("Opción no válida")
+
+
+texto = "Estoy haciendo un proyecto de Katas en python"
+# Contar palabras
+print(procesar_texto(texto, "contar"))
+
+# Reemplazar una palabra
+print(procesar_texto(texto, "reemplazar", "Katas", "ejercicios"))
+
+# Eliminar una palabra
+print(procesar_texto(texto, "eliminar", ("un", "proyecto", "de")))
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 38. Genera un programa que nos diga si es de noche, de día o tarde según la hora proporcionada por el usuario
+
+try: # try y except por si introducen una hora no valida
+    hora = int(input("Por favor, dime qué hora es (en formato 24h): "))
+    if 0 <= hora <= 23:
+        if 6 <= hora <= 12:
+            print(f"Son las {hora} horas, por lo tanto es de dia")
+        elif 13 <= hora <= 18:
+         print(f"Son las {hora} horas, por lo tanto es por la tarde")
+    else:
+        print(f"Son las {hora} horas, por lo tanto es de noche")
+
+except ValueError:
+    print("Entrada no válida. Por favor, introduce un número entero.")
+    
+    
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# 39. Escribe un programa que determine qué calificación en texto tiene un alumno en base a su calificación numérica 
+# Las reglas de calificación son:
+# - 0- 69 insuficiente 
+# - 70- 79 bien 
+# - 80- 89 muy bien 
+# - 90- 100 excelete
+
+try:  # try y except por si introducen un valor no válido
+    calificacion = int(input("Por favor, introduce tu calificacion: "))
+    if 0 <= calificacion <= 69:
+        print(f"Tu calificacion es de: {calificacion}. Tu nota es: insuficiente")
+    elif 70 <= calificacion <= 79:
+        print(f"Tu calificacion es de: {calificacion}. Tu nota es: bien")
+    elif 80 <= calificacion <= 89:
+        print(f"Tu calificacion es de: {calificacion}. Tu nota es: muy bien")
+    elif 90 <= calificacion <= 100:
+        print(f"Tu calificacion es de: {calificacion}. Tu nota es: excelente")
+    else:
+        print("La calificacion debe estar entre 0 y 100.")
+except ValueError:
+    print("Entrada no valida. Por favor, introduce una calificcalificacionación correcta.")
+  
+#    Programa para determinar la calificación en texto según la calificación numérica
+def determinar_calificacion(nota):
+    if 0 <= nota <= 69:
+        return "Insuficiente"
+    elif 70 <= nota <= 79:
+        return "Bien"
+    elif 80 <= nota <= 89:
+        return "Muy bien"
+    elif 90 <= nota <= 100:
+        return "Excelente"
+    else:
+        return "Calificación inválida"
+
+# Solicitar calificación al usuario
+calificacion = int(input("Introduce la calificación del alumno (0-100): "))
+
+# Determinar el texto de la calificación
+resultado = determinar_calificacion(calificacion)
+
+# Mostrar el resultado
+print("La calificación es:", resultado)
+
+
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+#40  Escribe una función que tome dos parámetros: figura (una cadena que puede ser "rectangulo" , "circulo", "triangulo" ) y datos  (una tupla con los datos necesarios para 
+# calcular el área de la figura).
+
+# "rectangulo", la tupla datos debe contener el ancho y el alto (en ese orden).
+# "circulo", la tupla datos debe contener el radio.
+# "triangulo", la tupla datos debe contener la base y la altura (en ese orden).
+
+import math # Importamos la librería math para operaciones matematicas.
+
+def calcular_area (figura,datos): # definimos la funcion
+    if figura == "rectangulo":
+        area = datos[0] * datos[1]   # Esto toma el valor del ancho (datos[0]) y lo multiplica por el alto (datos[1])
+        return f"Has elegido un rectangulo y su area es {area}"
+    elif figura == "circulo":
+        area = math.pi * (datos[0] ** 2)  # Calcula el area del circulo
+        return f"Has elegido un circulo y su area es {area}"
+    elif figura == "triangulo":
+        area = (datos[0] * datos[1]) / 2  # Calcula el area del triangulo
+        return f"Has elegido un triangulo y su area es {area}"
+
+figura = input("¿Que figura deseas calcular (rectangulo, circulo, triangulo)? ") # pedir al usuario
+
+if figura == "rectangulo":
+    ancho = float(input("Ingresa el ancho del rectangulo: "))  # Ancho del rectangulo
+    alto = float(input("Ingresa el alto del rectangulo: "))  # Alto del rectangulo
+    datos = (figura, (ancho, alto))  # Creamos la tupla con la figura y sus datos
+elif figura == "circulo":
+    radio = float(input("Ingresa el radio del circulo: "))  # Radio del circulo
+    datos = (figura, (radio,))  # Tupla con la figura y el radio
+elif figura == "triangulo":
+    base = float(input("Ingresa la base del triangulo: "))  # Base del triangulo
+    altura = float(input("Ingresa la altura del triangulo: "))  # Altura del triangulo
+    datos = (figura, (base, altura))  # Tupla con la figura y sus datos
+else:
+    print("Figura no reconocida.")  # Mensaje de error si la figura no es valida
+    datos = None  # No asignamos datos si la figura no es valida
+    
+if datos: # con este if solo llamamos a la funcion calcular_area si los datos son validos
+    print(calcular_area(*datos)) # llamamos a la funcion
+    
+    
+###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
+# # 41. En este ejercicio, se te pedirá que escribas un programa en Python que utilice condicionales para determinar el monto final de una compra en una tienda en línea, 
+# después de aplicar un descuento. El programa debe hacer lo siguiente:
+
+# 1. Solicita al usuario que ingrese el precio original de un artículo.#
+# 2. Pregunta al usuario si tiene un cupón de descuento (respuesta sí o no). #
+# 3. Si el usuario responde que sí, solicita que ingrese el valor del cupón de descuento.
+# 4. Aplica el descuento al precio original del artículo, siempre y cuando el valor del cupón sea válido (es decir, mayor
+# a cero). Por ejemplo, descuento de 15€. 
+# 5. Muestra el precio final de la compra, teniendo en cuenta el descuento aplicado o sin él. 
+# 6. Recuerda utilizar estructuras de control de flujo como if, elif y else para llevar a cabo estas acciones en tu
+# programa de Python
+
+
+precio_original_articulo = float(input("Por favor, ingresa en precio original del articulo: ")) # pedir al usuario el precio original y convertir a float
+
+# Preguntamos si tiene un cupón de descuento (booleano)
+cupon_descuento = input("Tienes cupon de descuento? (responde 'si' o 'no'): ").strip().lower() # Eliminamos espacios y conviertimos a minusculas 
+ 
+if cupon_descuento == "si": 
+    cupon_descuento = True  #establecemos cupon_descuento como True
+    valor_cupon = float(input("Introduce el valor de tu cupón:  ")) # en saco afirmativo pedimos el importe del cupon en float
+elif cupon_descuento == "no":  
+    cupon_descuento = False #establecemos cupon_descuento como False
+    valor_cupon = 0 # si no tiene cupon el cupon vale 0
+else:
+    print("Respuesta no valida. Por favor, responde 'si' o 'no'.")
+    cupon_descuento = False    
+    
+# Si el valor del cupón no es 0, se resta del precio. Si es 0, el precio no cambia.    
+precio_total = lambda precio, valor: precio - valor if valor != 0 else precio #funcion argumento1, argumento2 : precio - valor si valor no es 0 sino solo precio
+resultado = precio_total(precio_original_articulo, valor_cupon) 
+print(f"El precio total es: {resultado}")
