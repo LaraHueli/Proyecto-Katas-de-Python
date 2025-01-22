@@ -16,3 +16,12 @@ La carpeta principal del proyecto incluye los siguientes directorios:
 1. Clona este repositorio en tu máquina local utilizando:
    ```bash
    git clone <URL_DEL_REPOSITORIO>
+
+Funcionalidades Principales
+El proyecto incluye ejercicios que abordan los siguientes temas:
+
+Estructuras de control: Uso de condicionales, bucles y excepciones.
+Funciones: Definición, uso de funciones lambda y trabajo con *args y **kwargs.
+Programación Orientada a Objetos (POO): Implementación de clases, métodos y conceptos como encapsulación.
+Manejo de cadenas y listas: Procesamiento, manipulación y análisis de datos en estructuras básicas de Python.
+Librerías: Uso de módulos como math, functools y otros nativos de Python.
