@@ -77,7 +77,7 @@ print(list(diferencia))
 lista_notas = [4, 7, 5.5, 8, 6, 3.5, 9, 10, 4.5, 6.5]  # Lista de notas para calcular la media
 nota_aprobado = 5  # Nota mínima para aprobar
 
-def calcular_media(lista_notas, nota_aprobado):
+def calcular_media(lista_notas, nota_aprobado = 5):
     # Calcular la media (solo si la lista no está vacía)
     if len(lista_notas) > 0:
         media = sum(lista_notas) / len(lista_notas)  # Calcular la media
@@ -132,25 +132,21 @@ print (type(lista_strings))
 # 8.- "Escribe un programa que pida al usuario dos números e intente dividirlos. Si el usuario ingresa un valor no numérico o intenta dividir por cero, 
 # maneja esas excepciones de manera adecuada. Asegúrate de mostrar un mensaje indicando si la división fue exitosa o no."
 
-# Pedir los números al usuario
-numero1 = input("Por favor, introduce el primer número: ")
-numero2 = input("Por favor, introduce el segundo número: ")
-# Verificar si ambos son números
-if numero1.isdigit() and numero2.isdigit(): # para verificar si son numeros usamos AND porque necesitamos que los dos sean
-    numero1 = int(numero1) # Convertir las entradas a enteros
-    numero2 = int(numero2)# Convertir las entradas a enteros
+try:
+    # Pedir los números al usuario
+    numero1 = float(input("Por favor, introduce el primer número: "))  # Convertimos directamente a float
+    numero2 = float(input("Por favor, introduce el segundo número: "))
 
     # Verificar si el divisor es diferente de 0
-    if numero1!= 0 and numero2!= 0:
-        # Realizar la división
-        division = numero1 / numero2
-        print(f"El resultado de la división es: {division}")
+    if numero2 != 0:  # Si el segundo numero no es 0, se puede dividir
+        division = numero1 / numero2  # Realizamos la division
+        print(f"El resultado de la división es: {division}")  # Mostramos el resultado
     else:
-        # Manejar el caso de división por cero
-        print("No se puede dividir por cero. Inténtalo de nuevo.")
-else:
-    # Si alguno de los dos no es un número
-    print("Por favor, introduce solo números válidos.")
+        print("No se puede dividir por cero. Inténtalo de nuevo.")  # Mensaje de error si el divisor es 0
+
+except ValueError:  # Capturamos el error si el usuario ingresa algo que no sea un número
+    print("Por favor, introduce solo números válidos.")  # Mensaje de error en caso de entrada no numerica
+
     
     
 ###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
@@ -219,11 +215,11 @@ lista = ["MaYuScUlAs"]
 # Creamos la función
 def tupla_mayus_minus(lista):
     # set(lista[0]) convierte la palabra en un conjunto. El conjunto de "MaYuScUlAs" sería: {'M', 'a', 'u', 'Y', 'S', 'C', 'l'}
-    lista_unica = set(lista[0])  # Solo tomamos el primer elemento
+    lista_unica = sorted(set(lista[0]), key=lista[0].index)  # Solo tomamos el primer elemento
     # map (itera cada letra) y va usando lower y upper. en cada letra y pasando a Masyuscual  y minusclua cada letra en lista unica
-    resultado = map(lambda letra: (letra.upper(), letra.lower()), lista_unica) 
+    resultado = list(map(lambda letra: (letra.upper(), letra.lower()), lista_unica))
     # Convertimos el resultado a lista y lo retornamos
-    return list(resultado)
+    return resultado
 
 # Llamamos a la función
 print(tupla_mayus_minus(lista))
@@ -360,7 +356,6 @@ print(producto) # Imprimimos el resultado
 
 ###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
 # 23.-  Concatena una lista de palabras. Usa la funcion reduce()
-from functools import reduce #primero importaciones necesarias
 
 lista_palabras = ["Concatena", " ", "una", " ",  "lista", " ", "de", " ",  "palabras"] # lista dada
 
@@ -375,7 +370,7 @@ print(palabras_concatenadas) # Imprimimos el resultado
 ###-------------------------------------------------------------------------------------------------------------------------------------------------------------------###
 # 24 Calcula la diferencia total en los valores de una lista. Usa la funcion reduce()
 
-from functools import reduce # importacion necesaria
+
 
 lista_numeros = [51,45,10,5]
 
@@ -401,7 +396,7 @@ resultado = contar_caracteres(texto)
 print(f"El numero total de caracteres es: {resultado}")
 
 #opcion corta
-from functools import reduce  # Importamos 
+
 texto = "cadena de texto dada"
 numero_caracteres = reduce(lambda palabra, caracter: palabra + 1, texto, 0) # texto, 0): para poner un contador
  
